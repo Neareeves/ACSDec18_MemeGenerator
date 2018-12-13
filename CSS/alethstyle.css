@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'bangers';
+    src: url('../fonts/Bangers-Regular.ttf');
+}
+
+
+/*@font-face {
+    font-family: 'sherwood';
+    src: url('../fonts/SHERWOOD.TTF');
+}*/
+/**********************navbar**************************/
+.bg-dark {
+    background-color: #377771 !important;
+}
+.bg-dark *{
+    color: #FF8E72 !important;
+    font-weight: 501;
+}
+.nav-link:hover {
+    background-color: #4CE0B3;
+    color:  #377771 !important;
+}
+
+/**************footer******************/
+.footer {
+    background-color: #377771 !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.footer * {
+    color: #FF8E72 !important;
+}
+
+
+/**************fond******************/
+#pageGenerale {
+background-color: rgba(110, 94, 97, 0.16);
+}
+
+
+
+/***************contenu page générateur**********/
+.blocimage {
+    border-style: solid;
+    border-color: #FFF;
+    border-width: 10px;
+}
+.formValid  {
+    display: flex;
+    flex-direction: column;
+
+}
+.instructions {
+    padding-right: 30px;
+}
+
+
+/***************************section des photos à choisir*************/
+.choixPhotos > * {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.photo{
+    border: thick double rgba(110, 94, 97, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+input['placeholder'] {
+    color: #FFF;
+}
+
+
+#affichetoptext {
+    color: #FFF;
+    font-family: 'bangers';
+    border: thin dashed black;
+    text-shadow: 1px 0 black;
+ }
+
+ #affichebottext {
+    color:#FFF;
+    font-family: 'bangers';
+    border: thin dashed black;
+    text-shadow: 1px 0 black;
+ }
+ #affichebottext:hover, #affichetoptext:hover {
+cursor: crosshair;
+ }
