@@ -14,9 +14,16 @@ function insertMemeUrl($cheminImageFinale, $nom) {
 	$insert -> fetchAll();
 }
 
+
+
 function pickAFewMemes() {
 	global $dbh;
-	$pickMemes = $dbh -> prepare ("SELECT * FROM `memes` LIMIT 15;");
+	$pickMemes = $dbh -> prepare ("SELECT * FROM `memes` LIMIT 15 ;");
 	$pickMemes-> execute();
 	$pickMemes->fetchAll();
 }
+
+//ligne en plus avec la date pour sort by date
+//partages
+//carrousel
+//

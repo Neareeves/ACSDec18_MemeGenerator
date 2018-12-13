@@ -94,8 +94,8 @@ if (bottext.length < 25) {
 // 	}
 
 /*faire bouger les blocs***/
-blocPrev = document.getElementById('blocpreview');
-blocprev.style.position = "relative";
+// blocPrev = document.getElementById('blocpreview');
+// blocprev.style.position = "relative";
 //document.getElementById('blocpreview').appendchild('toptext');
 
 var mousePosition;
@@ -105,7 +105,7 @@ var isDown = false;
 
 
 // div = document.createElement("div");
-// toptext.style.position = "absolute";
+ toptext.style.position = "absolute";
 //
 // toptext.style.top = "0px";
 // toptext.style.width = "100px";
@@ -151,7 +151,7 @@ var isDown2 = false;
 
 
 // div = document.createElement("div2");
-// bottext.style.position = "absolute";
+bottext.style.position = "absolute";
 // bottext.style.left = "0px";
 // bottext.style.top = "0px";
 // bottext.style.width = "100px";

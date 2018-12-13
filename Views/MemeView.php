@@ -8,22 +8,25 @@
                 <div class="choixPhotos">
                     <h3>Choisis ta photo dans les propositions ou charge-la</h3>
                     <div class="photo">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum1?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum2?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum3?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum4?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum5?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum6?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum7?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum8?>.jpg">
-                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$randomNum9?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['0']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['1']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['2']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['3']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['4']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['5']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['6']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['7']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['8']?>.jpg">
+                        <img class='imageAMemer bouton' style="width: 8%; height: auto%" src="Images/photo<?=$range['9']?>.jpg">
 
                     </div>
-                    <form action="?page=meme" method="post">
+                    <form action="?page=meme" method="post" enctype="multipart/form-data">
+                        <label for="upload">Choisis un fichier pour l'envoyer</label>
+                        <input type="text" name="fileName" placeholder="Nom">
                         <input type="file" name="upload">
                         <input type="submit" name="envoyer" value="Valider">
                     </form>
+                 
                 </div>
             </div>
 
@@ -39,7 +42,7 @@
                                 <textarea type="text" id="textehaut" name="textehaut" placeholder="Meme'R ici" maxlength="35"></textarea>
                                 <textarea type="text" id="textebas" placeholder="Meme'R ici" name="textebas" maxlength="35"></textarea>
                                 <textarea type="text" id="nommeme" placeholder="Donne un nom à ton meme" name="nommeme" maxlength="10"></textarea>
-                                <input type="submit" name="valider" value="Essayer" onclick='loadDoc();'>
+                                <input type="submit" name="valider" value="Mémé dans les orties!" onclick='loadDoc();'>
                             </form>
                         </div>
                     </div>
@@ -47,7 +50,11 @@
                         <div class="blocimage">
                          <!--  <img id="chosenPic" src="<?=$chosenPic?>"> -->
 
-                         <div id="chosenPic"></div>
+                         <div id="chosenPic">
+                             <?php if (isset($pathName)) {
+                                echo '<img src="'.$pathName['chemin_img'].'" style="max-width: 100%; max-height= 100%"/>';
+                             }?>
+                         </div>
                          <div id="blocpreview">
 
                             <div id="affichetoptext"></div>
@@ -66,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <button onclick="loadDoc">Mémé dans les orties!</button>
+            
         </div>
 
     </section>
