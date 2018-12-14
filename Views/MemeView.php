@@ -21,7 +21,7 @@
 
                     </div>
                     <form action="?page=meme" method="post" enctype="multipart/form-data">
-                        <label for="upload">Choisis un fichier pour l'envoyer</label>
+                        <label for="upload">Choisis un fichier JPEG et nomme-le pour l'envoyer</label>
                         <input type="text" name="fileName" placeholder="Nom">
                         <input type="file" name="upload">
                         <input type="submit" name="envoyer" value="Valider">
@@ -42,6 +42,10 @@
                                 <textarea type="text" id="textehaut" name="textehaut" placeholder="Meme'R ici" maxlength="35"></textarea>
                                 <textarea type="text" id="textebas" placeholder="Meme'R ici" name="textebas" maxlength="35"></textarea>
                                 <textarea type="text" id="nommeme" placeholder="Donne un nom à ton meme" name="nommeme" maxlength="10"></textarea>
+                                <input type="hidden" id="Xhaut" name="Xhaut" value="">
+                                <input type="hidden" name="Yhaut" id="Yhaut" value="">
+                                <input type="hidden" name="Xbas" id="Xbas" value="">
+                                <input type="hidden" name="Ybas" id="Ybas" value="">
                                 <input type="submit" name="valider" value="Mémé dans les orties!" onclick='loadDoc();'>
                             </form>
                         </div>

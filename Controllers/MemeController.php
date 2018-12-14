@@ -40,15 +40,20 @@ $definitivePathName = 'upload/' . $_FILES['upload']['name'];
 
 $extension = substr(strrchr($_FILES['upload']['name'], "."), 1);
 
+
 $newName = $_POST['fileName'] . '.' . $extension;
 $name=$_POST['fileName'];
 $definitivePathName = 'upload/' . $newName;
 
+ // if ($extension == 'jpg')
+
+
 $moveIsOk = move_uploaded_file($temporarychoice, $definitivePathName);
+
 
 $pathName = insertFile($definitivePathName,$name) ;
 $_SESSION['pathPic']= $pathName['chemin_img'];
-$pathPic=$Session['pathPic'];
+$pathPic=$_SESSION['pathPic'];
 
 if ($moveIsOk) {
     $message = "The file has been uploaded in ..." . $definitivePathName;
@@ -98,7 +103,7 @@ $imageFinale = imagejpeg($sunset,$chemin."/".$nom);
 $cheminImageFinale = $chemin.'/'.$nom;
     // Clear Memory
 imagedestroy($sunset);
-// unset($_SESSION['pathPic']);
+unset($_SESSION['pathPic']);
 }
  else if (isset($_POST['nommeme'])) {
 
@@ -112,17 +117,22 @@ $text_b=$_POST['textebas'];
 $nom=$_POST['nommeme'];
 $imageAMontrer=$_POST['imageAMontrer'];
 
+/*on récupère les coordonnées*/
+$Xhaut =$_POST['Xhaut'];
+$Yhaut=$_POST['Yhaut'];
+$Xbas=$_POST['Xbas'];
+$Ybas = $_POST['Ybas'];
 
 //imageAMontrer : l'url complète de l'image
 
  // header('Content-type: image/jpeg');
 
 //on récupère l'url à partir de l'index de l'image (avec Images/...)
-$imageAMontrerCourt=  substr($imageAMontrer, 33, strlen($imageAMontrer));
+$imageAMontrerCourt=substr($imageAMontrer, 33, strlen($imageAMontrer));
 
     // Create Image From Existing File
 $sunset = imagecreatefromjpeg($imageAMontrerCourt);
-echo "court".$imageAMontrerCourt;
+
 
       // Allocate A Color For The Text
 $black = imagecolorallocate($sunset, 230, 230, 230);
@@ -146,12 +156,19 @@ $img_size = getimagesize($imageAMontrer);
 $taillePolice = $img_size['1']/13;
 
 //positionnement axe des ordonnées
-$yTexteHaut=($taillePolice+($img_size['1']/18));
-$yTexteBas=($img_size['1']-($img_size['1']/18));
+//calculs directs en php:
+// $yTexteHaut=($taillePolice+($img_size['1']/18));
+// $yTexteBas=($img_size['1']-($img_size['1']/18));
+
+//récupération des inputs cachés:
+$yTexteHaut=$Yhaut;
+$yTexteBas=$Ybas+'10px';
+$xTexteHaut=$Xhaut;
+$xTexteBas=$Xbas;
 
       // Print Text On Image
-imagettftext($sunset, $taillePolice, 0, 0, $yTexteHaut, $black, $font_path, $text_h);
-imagettftext($sunset, $taillePolice, 0, 0, $yTexteBas, $black, $font_path, $text_b);
+imagettftext($sunset, $taillePolice, 0, $xTexteHaut, $yTexteHaut, $black, $font_path, $text_h);
+imagettftext($sunset, $taillePolice, 0, $xTexteBas, $yTexteBas, $black, $font_path, $text_b);
 
 $chemin = $_SERVER['DOCUMENT_ROOT'].'/Projet_13_memeR/Images';
 
@@ -167,8 +184,8 @@ imagedestroy($sunset);
 }
 
 
-
-
+//derniers mêmes enregistrés dans la BDD
+$pickLastMemes=pickLastGenerated();
 
 
  if (isset($nom)) {

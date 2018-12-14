@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 07 Décembre 2018 à 16:01
+-- Généré le :  Ven 14 Décembre 2018 à 09:23
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -90,8 +90,16 @@ CREATE TABLE `memes` (
   `Id_memes` int(11) NOT NULL,
   `url_memes` varchar(1000) DEFAULT NULL,
   `titre` varchar(255) DEFAULT NULL,
-  `cheminlocal` varchar(255) DEFAULT NULL
+  `cheminlocal` varchar(255) DEFAULT NULL,
+  `date_ajout` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `memes`
+--
+
+INSERT INTO `memes` (`Id_memes`, `url_memes`, `titre`, `cheminlocal`, `date_ajout`) VALUES
+(1, '/var/www/html/Projet_13_memeR/Images/coucou', 'coucou', '/var/www/html/Projet_13_memeR/Images/coucou', '2018-12-14');
 
 --
 -- Index pour les tables exportées
@@ -117,12 +125,12 @@ ALTER TABLE `memes`
 -- AUTO_INCREMENT pour la table `images_brutes`
 --
 ALTER TABLE `images_brutes`
-  MODIFY `ID_imgbrutes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ID_imgbrutes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 --
 -- AUTO_INCREMENT pour la table `memes`
 --
 ALTER TABLE `memes`
-  MODIFY `Id_memes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_memes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
