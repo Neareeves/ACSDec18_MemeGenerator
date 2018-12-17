@@ -1,0 +1,10 @@
+body .horizontal-scroll-wrapper{
+    /* display:flex; */
+   overflow:scroll;
+    overflow-y:hidden;
+    white-space:nowrap;
+}
+.photo{
+    display:block;
+    
+}

@@ -144,8 +144,8 @@ document.addEventListener('mousemove', function(event) {
      Xhaut = document.getElementById('Xhaut').value;
      Yhaut = document.getElementById('Yhaut').value;
 Xhaut = (mousePosition.x + offset[0]);
-  console.log(Xhaut);
 Yhaut=(mousePosition.y + offset[1]);
+// console.log(Yhaut);
 
     }
 }, true);
@@ -196,7 +196,8 @@ document.addEventListener('mousemove', function(event) {
         Ybas= document.getElementById('Ybas').value;
  Xbas=(mousePosition.x + offset2[0]); 
  Ybas=(mousePosition.y + offset2[1]);
-console.log(Xbas);
+// console.log(Ybas);
+
     }
 }, true);
 
